@@ -143,6 +143,7 @@ interpolateButton.addEventListener("click", function(){
 removeInterpolateButton.addEventListener("click",function(){
     map.removeLayer(nitrateLayer);
 	addCensusLegend();
+	results.hidden = true;
 	errorButton.disabled = true;
 	calculateButton.disabled = true;
 	removeInterpolateButton.disabled = true;
@@ -178,6 +179,7 @@ errorButton.addEventListener("click", function(){
 
 removeResidualsButton.addEventListener("click",function(){
     map.removeLayer(errorLayer);
+	results.hidden = true;
 	addInterpolateLegend();
 	removeResidualsButton.disabled = true;
 	
