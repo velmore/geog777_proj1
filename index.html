@@ -1,0 +1,91 @@
+<html>
+<head>
+    <title>Nitrate Levels and Cancer Rates</title>
+	<p></p>
+    <script type= "text/javascript" src = "assets/js/lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://kit.fontawesome.com/16a3dc2bcb.js"></script>
+
+</head>
+    <body>
+        <div class="container">
+            <div id=" panelBackground"></div>
+            <div id="panel">
+                <div class="row" id="title">
+                    <h2 id="titleText">Nitrate Levels and Cancer Rates</h2>
+                </div>
+                <div class="row">
+                    <div class="popup">
+                        <h5>Interpolate Tool <i id="interpolationTip" class="fas fa-info-circle"></i></h5>
+                        <span class="popuptext" id="interpolatePopup">This tool interpolates nitrate data using the Inverse Distance Weighted (IDW) method with a user-defined distance decay coefficient (k).</span>
+                    </div>
+
+                    <label for="exponent">Distance Decay Coefficient (k)</label>
+                    <input type="number" value="1" id="exponent" min="1"/>
+                    <div class="controls">
+                        <button id = "interpolate" class="buttonload btn btn-primary btn-block">
+                            <i id = "loader" class="fa fa-circle-o-notch fa-spin"></i> Run IDW
+                        </button>
+                        <button disabled id="removeInterpolate" class="btn btn-primary btn-block">Remove IDW</button>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="popup">
+                        <h5> Linear Regression <i id="regressionTip" class=" fas fa-info-circle"></i></h5>
+                        <span class="popuptext" id="regressionPopup">
+                        This tool calculates the equation of the line of best fit for the interpolated nitrate values (explanatory variable) and cancer rates (dependent variable) aggregated at the census block level. </span>
+                    </div>
+
+                    <div class="controls">
+                        <button disabled id="calculate" class="btn btn-primary btn-block">
+                            <i id = "regressionLoader" class="fa fa-circle-o-notch fa-spin"></i> Line of Best Fit
+                        </button>
+                    </div>
+
+                    <!--<button id="removeCancer">Remove</button>-->
+                </div>
+
+                <div class="row" id = "results" hidden="true">
+                    <p>Y = <span id="slope"></span>x + <span id="intersect"></span></p>
+                </div>
+
+                <div class="row">
+
+                    <div class="popup">
+                        <h5 id="errorTitle">Calculate Residuals <i id="errorTip" class="fas fa-info-circle"></i></h5>
+                        <span class="popuptext" id="errorPopup">Residuals represent the distance between actual data values and the values predicted by the line of best fit. They can be positive (actual value greater than predicted value) or negative (actual values less than predicted values).
+                   </span>
+                    </div>
+
+                    <div class="controls">
+                        <button disabled id = "errorButton" class="buttonload btn btn-primary btn-block">
+                            <i id = "errorLoader" class="fa fa-circle-o-notch fa-spin"></i> Calculate Residuals
+                        </button>
+						<button disabled id="removeResiduals" class="buttonload btn btn-primary btn-block">Remove Residuals</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="map"></div>
+
+        </div>
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" ></script>
+        <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+        <script src='https://unpkg.com/simple-statistics@7.0.2/dist/simple-statistics.min.js'></script>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+        <script type= "text/javascript" src = "assets/js/main.js"></script>
+    </body>
+</html>

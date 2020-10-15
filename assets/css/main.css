@@ -1,0 +1,253 @@
+body{
+    background-color: #f3f3f3;
+}
+
+h1{
+    color: black;
+	font-family: serif;
+}
+
+h5{
+    width: 100%;
+    /*border-bottom: 1px solid black;*/
+    /*align*/
+    /*background-color: pink;*/
+    color: black;
+	font-family: serif;
+}
+
+i{
+    margin-left: 2px;
+}
+
+.container{
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+.controls{
+    width: 75%;
+    margin-left: 13.5%;
+    margin-bottom: 10px;
+}
+
+.row{
+    /*border: 2px solid white;*/
+    text-align: center;
+	font-family: serif;
+}
+
+.row label{
+    text-align: left;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1px;
+    
+    color: black;
+}
+
+.btn{
+    background-color: #0aa8e3;
+    border: none;
+	color: black;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+	
+}
+
+.btn:hover{
+    background-color:  #006195;
+    border: none;
+}
+
+.btn-primary:disabled{
+    background-color: #f3f3f3;
+    border: none;
+	color: #a9a9a9;
+}
+
+.info {
+padding: 6px 8px;
+font: 14px/16px serif;
+background: white;
+background: rgba(255,255,255,0.8);
+box-shadow: 0 0 15px rgba(0,0,0,0.2);
+border-radius: 5px;
+}
+
+.legend {
+background-color: “black”;
+line-height: 25px;
+color: #555;
+width: auto;
+height: auto;
+}
+
+.legend i {
+width: 18px;
+height: 18px;
+float: left;
+margin-right: 8px;
+opacity: 0.7;
+}
+
+.leaflet-left .leaflet-control {
+    margin-left: 10; /*3.375 = 25% (width of the panel) * 13.5% (margin of other buttons)*/
+    margin-bottom: 15;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+#exponent, #cellSize{
+    width: 12%;
+    margin-left: 40%;
+}
+
+
+
+#interpolate{
+    margin-top: 10px;
+}
+
+
+#results{
+    width: 75%;
+    margin-left: 13.5%;
+    text-align: center;
+	height: 20px;
+}
+
+#results p{
+    width: 100%;
+    color: black;
+}
+
+#errorTitle{
+    margin-top: 10px;
+}
+
+#calculate, #errorButton{
+    margin-top: 10px;
+}
+
+
+#panel{
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    margin-top: 2vh;
+}
+
+#\ panelBackground{
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    /*margin-top: 3em;*/
+    background-color: #D3D3D3;
+    opacity: 0.8;
+}
+
+#map{
+    /*float: right;*/
+    /*width: 75%;*/
+    /*height: 100%;*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#title{
+    display: inline;
+    color: black;
+    text-align: center;
+	font-family: serif;
+}
+
+#titleText{
+    margin-top: 10px;
+    margin-bottom: 10px;
+	text-align: center;
+}
+
+.popup{
+    margin: auto;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #555;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left: 115%;
+    /*margin-left: -80px;*/
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    margin-left: -5px;
+    border: 5px solid #555;
+
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
